@@ -22,6 +22,10 @@ class Discord(Notificacion):
     def enviar(self, mensaje):
         print('[Discord] ' + mensaje)
 
+class Slack(Notificacion):
+    def enviar(self, mensaje):
+        print('[Slack] ' + mensaje)
+
 class NotificacionFactory:
     @staticmethod
     def crear(tipo):
@@ -35,6 +39,8 @@ class NotificacionFactory:
             return WhatsApp()
         elif tipo == "discord":
             return Discord()
+        elif tipo == "slack":
+            return Slack()
 
         raise ValueError("Tipo no soportado")
 
