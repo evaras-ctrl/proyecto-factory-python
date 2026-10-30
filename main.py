@@ -14,6 +14,10 @@ class Telegram(Notificacion):
     def enviar(self, mensaje):
         print(f"[Telegram] {mensaje}")
 
+class WhatsApp(Notificacion):
+    def enviar(self, mensaje):
+        print('[WhatsApp] ' + mensaje)
+
 class NotificacionFactory:
     @staticmethod
     def crear(tipo):
@@ -23,6 +27,8 @@ class NotificacionFactory:
             return SMS()
         elif tipo == "telegram":
             return Telegram()
+        elif tipo == "whatsapp":
+            return WhatsApp()
 
         raise ValueError("Tipo no soportado")
 
